@@ -1,0 +1,5 @@
+{
+    "dbConnectionUri": "mongodb://localhost:27017/whiskyBase",
+    "migrations-dir":"./config/migrations",
+    "es6":true
+}

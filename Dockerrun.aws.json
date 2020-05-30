@@ -1,0 +1,32 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "authentication": {
+        "bucket": "elasticbeanstalk-us-east-1-264795727753",
+        "key": "docker.io/.dockercfg"
+    },
+    "containerDefinitions": [
+        {
+            "name": "communication",
+            "image": "hiupsolutions/chat-service",
+            "hostname": "communication",
+            "essential": false,
+            "memory": 256
+        },
+        {
+            "name": "communication-nginx",
+            "image": "hiupsolutions/chat-nginx",
+            "hostname": "communication-nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": [
+                "communication"
+            ],
+            "memory": 150
+        }
+    ]
+}
